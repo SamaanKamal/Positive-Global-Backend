@@ -1,0 +1,19 @@
+{
+  "name": "positive-global-travel-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Positive Global Travel API backend",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "express-rate-limit": "^8.1.0"
+  }
+}
