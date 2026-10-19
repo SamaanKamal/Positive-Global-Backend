@@ -48,9 +48,9 @@ app.use(
 );
 
 app.use((req, res) => {
-  res.status(404).json({
-    error: "Endpoint not found."
-  });
+  res
+    .status(404)
+    .sendFile(path.join(PUBLIC_DIR, "404.html"));
 });
 
 
