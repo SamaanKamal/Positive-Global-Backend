@@ -1,4 +1,4 @@
-export const PORT = 3000;
+export const PORT = Number(process.env.PORT || 3000);
 
 export const DUFFEL_BASE_URL = "https://api.duffel.com";
 

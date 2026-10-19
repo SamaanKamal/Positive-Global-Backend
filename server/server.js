@@ -47,7 +47,12 @@ app.use(
   })
 );
 
-app.use(express.static(PUBLIC_DIR));
+app.use((req, res) => {
+  res.status(404).json({
+    error: "Endpoint not found."
+  });
+});
+
 
 function apiError(message, status = 500, details = null) {
   const error = new Error(message);
@@ -810,7 +815,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log("");
   console.log("Positive Global Travel");
   console.log("----------------------");
