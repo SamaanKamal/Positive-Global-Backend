@@ -13,7 +13,6 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PUBLIC_DIR = path.join(__dirname, "..", "public");
 const DATA_DIR = path.join(__dirname, "..", "data");
 const ENQUIRIES_FILE = path.join(DATA_DIR, "enquiries.json");
 
@@ -46,13 +45,6 @@ app.use(
     legacyHeaders: false
   })
 );
-
-app.use((req, res) => {
-  res
-    .status(404)
-    .sendFile(path.join(PUBLIC_DIR, "404.html"));
-});
-
 
 function apiError(message, status = 500, details = null) {
   const error = new Error(message);
@@ -785,12 +777,6 @@ app.use("/api", (req, res) => {
 /* =========================================================
    WEBSITE 404
 ========================================================= */
-
-app.use((req, res) => {
-  res
-    .status(404)
-    .sendFile(path.join(PUBLIC_DIR, "404.html"));
-});
 
 /* =========================================================
    ERROR HANDLER
